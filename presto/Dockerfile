@@ -6,7 +6,7 @@ RUN wget -q -O /tmp/presto-server-0.150.tar.gz https://repo1.maven.org/maven2/co
 
 ENV PRESTO_HOME /opt/presto-server-0.150
 
-COPY presto/ $PRESTO_HOME/etc/
+COPY etc/ $PRESTO_HOME/etc/
 
 EXPOSE 8080
 
