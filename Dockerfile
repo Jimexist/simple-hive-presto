@@ -10,7 +10,7 @@ RUN wget -q -O /tmp/hadoop-2.7.2.tar.gz https://mirrors.ocf.berkeley.edu/apache/
     tar xf /tmp/presto-server-0.150.tar.gz -C /opt && \
     rm /tmp/presto-server-0.150.tar.gz
 
-ADD presto /tmp/presto-server-0.150/etc
+COPY presto/ /tmp/presto-server-0.150/etc/
 ADD launch.sh /opt/launch.sh
 
 ENV HADOOP_HOME /opt/hadoop-2.7.2
