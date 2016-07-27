@@ -10,10 +10,10 @@ RUN wget -q -O /tmp/hadoop-2.7.2.tar.gz https://mirrors.ocf.berkeley.edu/apache/
     tar xf /tmp/presto-server-0.150.tar.gz -C /opt && \
     rm /tmp/presto-server-0.150.tar.gz
 
+ADD presto /tmp/presto-server-0.150/config
+
 ENV HADOOP_HOME /opt/hadoop-2.7.2
 ENV HIVE_HOME /opt/apache-hive-1.2.1-bin
 ENV PRESTO_HOME /opt/presto-server-0.150
 
-WORKDIR $HIVE_HOME
-
-CMD ["./bin/hiveserver2"]
+ENTRYPOINT "./launch.sh"
