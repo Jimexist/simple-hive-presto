@@ -6,6 +6,7 @@ ADD https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.150/prest
 
 ENV HADOOP_HOME /opt/hadoop-2.7.2
 ENV HIVE_HOME /opt/apache-hive-1.2.1-bin
+ENV PRESTO_HOME /opt/presto-server-0.150
 
 WORKDIR $HIVE_HOME
 
