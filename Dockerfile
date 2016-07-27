@@ -16,4 +16,6 @@ ENV HADOOP_HOME /opt/hadoop-2.7.2
 ENV HIVE_HOME /opt/apache-hive-1.2.1-bin
 ENV PRESTO_HOME /opt/presto-server-0.150
 
+EXPOSE 10000 8080
+
 ENTRYPOINT "./launch.sh"
