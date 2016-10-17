@@ -1,11 +1,17 @@
-FROM java
+FROM java:jdk
 
-RUN wget -q -O /tmp/presto-server-0.153.tar.gz \
-    https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.153/presto-server-0.153.tar.gz && \
-    tar xf /tmp/presto-server-0.153.tar.gz -C /opt && \
-    rm /tmp/presto-server-0.153.tar.gz
+MAINTAINER Jiayu Liu <etareduce@gmail.com>
 
-ENV PRESTO_HOME /opt/presto-server-0.153
+ENV DEBIAN_FRONTEND noninteractive
+
+ADD https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.153/presto-server-0.153.tar.gz \
+    /tmp/presto.tar.gz
+
+RUN mkdir -p /opt/presto &&\
+    tar -zxvf /tmp/presto.tar.gz -C /opt/presto &&\
+    rm /tmp/presto.tar.gz
+
+ENV PRESTO_HOME /opt/presto/presto-server-0.153
 
 COPY etc/ $PRESTO_HOME/etc/
 
