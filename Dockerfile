@@ -4,14 +4,14 @@ MAINTAINER Jiayu Liu <etareduce@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.153/presto-server-0.153.tar.gz \
+ADD https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.157/presto-server-0.157.tar.gz \
     /tmp/presto.tar.gz
 
 RUN mkdir -p /opt/presto &&\
     tar -zxvf /tmp/presto.tar.gz -C /opt/presto &&\
     rm /tmp/presto.tar.gz
 
-ENV PRESTO_HOME /opt/presto/presto-server-0.153
+ENV PRESTO_HOME /opt/presto/presto-server-0.157
 
 COPY etc/ $PRESTO_HOME/etc/
 
