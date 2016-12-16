@@ -9,12 +9,9 @@ ENV PRESTO_VERSION 0.160
 RUN set -x \
     && apk add --no-cache --update --virtual .presto-deps \
         python \
-        ca-certificates \
-        openssl \
     && python -V \
-    && update-ca-certificates \
     && apk del .presto-deps \
-    && wget -O /tmp/presto.tar.gz https://repo1.maven.org/maven2/com/facebook/presto/presto-server/$PRESTO_VERSION/presto-server-$PRESTO_VERSION.tar.gz \
+    && wget -O /tmp/presto.tar.gz http://repo1.maven.org/maven2/com/facebook/presto/presto-server/$PRESTO_VERSION/presto-server-$PRESTO_VERSION.tar.gz \
     && mkdir -p /opt/presto \
     && tar -zxvf /tmp/presto.tar.gz -C /opt/presto \
     && rm /tmp/presto.tar.gz
