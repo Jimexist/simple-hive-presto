@@ -1,4 +1,4 @@
-FROM java:jre-alpine
+FROM java:8
 
 MAINTAINER Jiayu Liu <etareduce@gmail.com>
 
@@ -7,9 +7,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PRESTO_VERSION 0.160
 
 RUN set -x \
-    && apk add --no-cache --update \
-        python \
-    && python -V \
     && wget -O /tmp/presto.tar.gz http://repo1.maven.org/maven2/com/facebook/presto/presto-server/$PRESTO_VERSION/presto-server-$PRESTO_VERSION.tar.gz \
     && mkdir -p /opt/presto \
     && tar -zxvf /tmp/presto.tar.gz -C /opt/presto \
