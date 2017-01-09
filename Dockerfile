@@ -4,7 +4,7 @@ MAINTAINER Jiayu Liu <etareduce@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV PRESTO_VERSION 0.160
+ENV PRESTO_VERSION 0.161
 
 RUN set -x \
     && wget -O /tmp/presto.tar.gz http://repo1.maven.org/maven2/com/facebook/presto/presto-server/$PRESTO_VERSION/presto-server-$PRESTO_VERSION.tar.gz \
